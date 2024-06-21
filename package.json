@@ -26,20 +26,23 @@
 	],
 	"main": "out/init.lua",
 	"scripts": {
-		"watch": "rbxtsc -w --verbose --rojo serve.project.json --type model",
-		"compile": "rbxtsc --verbose --rojo serve.project.json --type model",
-		"test": "rojo build serve.project.json -o place.rbxl & run-in-roblox --place place.rbxl --script scripts/run_tests.lua"
+		"watch": "rbxtsc -w --verbose --rojo test.project.json --type model",
+		"compile-package": "rbxtsc --verbose",
+		"compile-model": "rbxtsc --verbose --rojo test.project.json --type model",
+		"build-place": "rojo build test.project.json -o test.rbxl",
+		"run-tests": "run-in-roblox --place test.rbxl --script scripts/run_tests.lua",
+		"test": "npm run compile-model & npm run build-place & npm run run-tests"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.7.3",
-		"@rbxts/compiler-types": "^2.3.0-types.0",
+		"@biomejs/biome": "^1.8.2",
+		"@rbxts/compiler-types": "^2.3.0-types.1",
 		"@rbxts/types": "^1.0.783",
 		"roblox-ts": "^2.3.0",
-		"typescript": "^4.9.4"
+		"typescript": "^5.2.2"
 	},
 	"dependencies": {
 		"@rbxts/jest": "^0.1.0",
 		"@rbxts/jest-globals": "^0.1.0",
-		"@rbxts/sift": "^0.0.8"
+		"@rbxts/sift": "^0.0.9"
 	}
 }
