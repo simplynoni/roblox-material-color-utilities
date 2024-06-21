@@ -1,5 +1,5 @@
 {
-	"name": "material-ui",
+	"name": "material-color-utilities",
 	"globIgnorePaths": ["**/package.json", "**/tsconfig.json"],
 	"tree": {
 		"$path": "./out"

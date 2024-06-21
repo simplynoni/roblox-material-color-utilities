@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
-import { QuantizerCelebi } from "../quantize/quantizer_celebi";
-import { Score } from "../score/score";
+import { QuantizerCelebi } from '../quantize/quantizer_celebi';
+import { Score } from '../score/score';
 
-import { argbFromRgb } from "./color_utils";
+import { argbFromRgb } from './color_utils';
 
 /**
  * Get the source color from an image.
@@ -27,8 +27,7 @@ import { argbFromRgb } from "./color_utils";
  * @return Source color - the color most suitable for creating a UI theme
  */
 export async function sourceColorFromImage(image: EditableImage) {
-	// @TODO: waiting on roblox-ts types to be updated
-	const imageBytes = image.ReadPixels(Vector2.zero, image.Size) as number[];
+	const imageBytes = image.ReadPixels(Vector2.zero, image.Size);
 	// Convert Image data to Pixel Array
 	const pixels: number[] = [];
 	for (let i = 0; i < imageBytes.size(); i += 4) {

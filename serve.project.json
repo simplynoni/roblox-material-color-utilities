@@ -1,5 +1,5 @@
 {
-	"name": "material-ui",
+	"name": "material-color-utilities",
 	"globIgnorePaths": ["**/package.json", "**/tsconfig.json"],
 	"tree": {
 		"$className": "DataModel",
@@ -14,7 +14,7 @@
 					}
 				}
 			},
-			"Material-UI": {
+			"material_color": {
 				"$path": "out"
 			}
 		}

@@ -40,7 +40,7 @@ const SCORE_OPTION_DEFAULTS = {
 };
 
 function compare(a: { hct: Hct; score: number }, b: { hct: Hct; score: number }): boolean {
-	return a.score < b.score;
+	return a.score > b.score;
 }
 
 /**

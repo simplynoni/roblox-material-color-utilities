@@ -44,8 +44,7 @@ export class TemperatureCache {
 
 		const hcts = concat(this.getHctsByHue(), [this.input]);
 		const temperaturesByHct = this.getTempsByHct();
-		// @TODO: not 100% sure this is correct
-		hcts.sort((a, b) => temperaturesByHct.get(a)! > temperaturesByHct.get(b)!);
+		hcts.sort((a, b) => temperaturesByHct.get(a)! < temperaturesByHct.get(b)!);
 		this.hctsByTempCache = hcts;
 		return hcts;
 	}

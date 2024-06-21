@@ -168,7 +168,6 @@ describe('CamSolver', () => {
 						expect(math.abs(hctColor.getHue() - hue)).toBeLessThanOrEqual(4.0);
 					}
 
-					// @TODO: unsure how to convert this to TestEZ
 					expect(hctColor.getChroma()).toBeGreaterThanOrEqual(0);
 					expect(hctColor.getChroma()).toBeLessThanOrEqual(chroma + 2.5);
 

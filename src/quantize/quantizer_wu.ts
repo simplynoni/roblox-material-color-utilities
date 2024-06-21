@@ -128,7 +128,7 @@ export class QuantizerWu {
 	}
 
 	private createBoxes(maxColors: number): CreateBoxesResult {
-		this.cubes = new Array<Box>(maxColors).map(() => new Box());
+		this.cubes = new Array<Box>(maxColors, new Box());
 		const volumeVariance = new Array<number>(maxColors, 0.0);
 		this.cubes[0].r0 = 0;
 		this.cubes[0].g0 = 0;

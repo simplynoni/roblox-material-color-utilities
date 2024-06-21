@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-import { LabPointProvider } from "./lab_point_provider";
+import { LabPointProvider } from './lab_point_provider';
 
 const MAX_ITERATIONS = 10;
 const MIN_MOVEMENT_DISTANCE = 3.0;
@@ -49,11 +49,7 @@ export class QuantizerWsmeans {
 	 *     number of colors may be returned.
 	 * @return Colors in ARGB format.
 	 */
-	static quantize(
-		inputPixels: number[],
-		startingClusters: number[],
-		maxColors: number,
-	): Map<number, number> {
+	static quantize(inputPixels: number[], startingClusters: number[], maxColors: number): Map<number, number> {
 		const pixelToCount = new Map<number, number>();
 		const points = new Array<number[]>();
 		const pixels = new Array<number>();
@@ -135,7 +131,7 @@ export class QuantizerWsmeans {
 					distanceToIndexMatrix[i][j].distance = distance;
 					distanceToIndexMatrix[i][j].index = j;
 				}
-				distanceToIndexMatrix[i].sort();
+				distanceToIndexMatrix[i].sort((a, b) => a.index < b.index);
 				for (let j = 0; j < clusterCount; j++) {
 					indexMatrix[i][j] = distanceToIndexMatrix[i][j].index;
 				}
@@ -150,10 +146,7 @@ export class QuantizerWsmeans {
 				let minimumDistance = previousDistance;
 				let newClusterIndex = -1;
 				for (let j = 0; j < clusterCount; j++) {
-					if (
-						distanceToIndexMatrix[previousClusterIndex][j].distance >=
-						4 * previousDistance
-					) {
+					if (distanceToIndexMatrix[previousClusterIndex][j].distance >= 4 * previousDistance) {
 						continue;
 					}
 					const distance = pointProvider.distance(point, clusters[j]);
@@ -163,9 +156,7 @@ export class QuantizerWsmeans {
 					}
 				}
 				if (newClusterIndex !== -1) {
-					const distanceChange = math.abs(
-						math.sqrt(minimumDistance) - math.sqrt(previousDistance),
-					);
+					const distanceChange = math.abs(math.sqrt(minimumDistance) - math.sqrt(previousDistance));
 					if (distanceChange > MIN_MOVEMENT_DISTANCE) {
 						pointsMoved++;
 						clusterIndices[i] = newClusterIndex;
