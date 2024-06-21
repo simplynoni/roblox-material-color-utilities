@@ -15,14 +15,8 @@
  * limitations under the License.
  */
 
-// import { customMatchers } from "../utils/test_utils";
-
 import { describe, expect, it } from '@rbxts/jest-globals';
 import { SchemeAndroid } from './scheme_android';
-
-// beforeEach(() => {
-// 	jasmine.addMatchers(customMatchers);
-// });
 
 describe('android scheme', () => {
 	it('blue light scheme', () => {

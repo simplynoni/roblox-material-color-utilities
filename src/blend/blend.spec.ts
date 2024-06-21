@@ -16,13 +16,8 @@
  */
 
 import { describe, expect, it } from '@rbxts/jest-globals';
-// import { customMatchers } from "../utils/test_utils";
 
 import { Blend } from './blend';
-
-// beforeEach(() => {
-// 	jasmine.addMatchers(customMatchers);
-// });
 
 const RED = 0xffff0000;
 const BLUE = 0xff0000ff;
