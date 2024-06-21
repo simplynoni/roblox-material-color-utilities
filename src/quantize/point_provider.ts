@@ -21,7 +21,7 @@
  */
 
 export declare interface PointProvider {
-  toInt(point: number[]): number;
-  fromInt(argb: number): number[];
-  distance(from: number[], to: number[]): number;
+	toInt(point: number[]): number;
+	fromInt(argb: number): number[];
+	distance(from: number[], to: number[]): number;
 }

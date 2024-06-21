@@ -21,13 +21,13 @@
  * colors corresponding to the theme.
  */
 export enum Variant {
-  MONOCHROME,
-  NEUTRAL,
-  TONAL_SPOT,
-  VIBRANT,
-  EXPRESSIVE,
-  FIDELITY,
-  CONTENT,
-  RAINBOW,
-  FRUIT_SALAD
+	MONOCHROME,
+	NEUTRAL,
+	TONAL_SPOT,
+	VIBRANT,
+	EXPRESSIVE,
+	FIDELITY,
+	CONTENT,
+	RAINBOW,
+	FRUIT_SALAD,
 }

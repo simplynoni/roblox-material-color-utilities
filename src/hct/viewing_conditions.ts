@@ -15,8 +15,8 @@
  * limitations under the License.
  */
 
-import * as utils from "../utils/color_utils";
-import * as mathUtils from "../utils/math_utils";
+import * as utils from '../utils/color_utils';
+import * as mathUtils from '../utils/math_utils';
 
 /**
  * In traditional color spaces, a color can be identified solely by the
@@ -69,26 +69,15 @@ export class ViewingConditions {
 		const gW = xyz[0] * -0.250268 + xyz[1] * 1.204414 + xyz[2] * 0.045854;
 		const bW = xyz[0] * -0.002079 + xyz[1] * 0.048952 + xyz[2] * 0.953127;
 		const f = 0.8 + surround / 10.0;
-		const c =
-			f >= 0.9
-				? mathUtils.lerp(0.59, 0.69, (f - 0.9) * 10.0)
-				: mathUtils.lerp(0.525, 0.59, (f - 0.8) * 10.0);
-		let d = discountingIlluminant
-			? 1.0
-			: f * (1.0 - (1.0 / 3.6) * math.exp((-adaptingLuminance - 42.0) / 92.0));
+		const c = f >= 0.9 ? mathUtils.lerp(0.59, 0.69, (f - 0.9) * 10.0) : mathUtils.lerp(0.525, 0.59, (f - 0.8) * 10.0);
+		let d = discountingIlluminant ? 1.0 : f * (1.0 - (1.0 / 3.6) * math.exp((-adaptingLuminance - 42.0) / 92.0));
 		d = d > 1.0 ? 1.0 : d < 0.0 ? 0.0 : d;
 		const nc = f;
-		const rgbD = [
-			d * (100.0 / rW) + 1.0 - d,
-			d * (100.0 / gW) + 1.0 - d,
-			d * (100.0 / bW) + 1.0 - d,
-		];
+		const rgbD = [d * (100.0 / rW) + 1.0 - d, d * (100.0 / gW) + 1.0 - d, d * (100.0 / bW) + 1.0 - d];
 		const k = 1.0 / (5.0 * adaptingLuminance + 1.0);
 		const k4 = k * k * k * k;
 		const k4F = 1.0 - k4;
-		const fl =
-			k4 * adaptingLuminance +
-			0.1 * k4F * k4F * mathUtils.cbrt(5.0 * adaptingLuminance);
+		const fl = k4 * adaptingLuminance + 0.1 * k4F * k4F * mathUtils.cbrt(5.0 * adaptingLuminance);
 		const n = utils.yFromLstar(backgroundLstar) / whitePoint[1];
 		const z = 1.48 + math.sqrt(n);
 		const nbb = 0.725 / math.pow(n, 0.2);
@@ -104,18 +93,7 @@ export class ViewingConditions {
 			(400.0 * rgbAFactors[2]) / (rgbAFactors[2] + 27.13),
 		];
 		const aw = (2.0 * rgbA[0] + rgbA[1] + 0.05 * rgbA[2]) * nbb;
-		return new ViewingConditions(
-			n,
-			aw,
-			nbb,
-			ncb,
-			c,
-			nc,
-			rgbD,
-			fl,
-			math.pow(fl, 0.25),
-			z,
-		);
+		return new ViewingConditions(n, aw, nbb, ncb, c, nc, rgbD, fl, math.pow(fl, 0.25), z);
 	}
 
 	/**

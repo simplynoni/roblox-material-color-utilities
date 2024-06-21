@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-import * as utils from "../utils/color_utils";
+import * as utils from '../utils/color_utils';
 
-import type { PointProvider } from "./point_provider";
+import type { PointProvider } from './point_provider';
 
 /**
  * Provides conversions needed for K-Means quantization. Converting input to

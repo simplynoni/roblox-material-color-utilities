@@ -26,44 +26,46 @@ import { sourceColorFromImage } from './image_utils';
  * Custom color used to pair with a theme
  */
 export interface CustomColor {
-  value: number;
-  name: string;
-  blend: boolean;
+	value: number;
+	name: string;
+	blend: boolean;
 }
 
 /**
  * Color group
  */
 export interface ColorGroup {
-  color: number;
-  onColor: number;
-  colorContainer: number;
-  onColorContainer: number;
+	color: number;
+	onColor: number;
+	colorContainer: number;
+	onColorContainer: number;
 }
 
 /**
  * Custom Color Group
  */
 export interface CustomColorGroup {
-  color: CustomColor;
-  value: number;
-  light: ColorGroup;
-  dark: ColorGroup;
+	color: CustomColor;
+	value: number;
+	light: ColorGroup;
+	dark: ColorGroup;
 }
 
 /**
  * Theme
  */
 export interface Theme {
-  source: number;
-  schemes: {light: Scheme; dark: Scheme;};
-  palettes: {
-    primary: TonalPalette; secondary: TonalPalette; tertiary: TonalPalette;
-    neutral: TonalPalette;
-    neutralVariant: TonalPalette;
-    error: TonalPalette;
-  };
-  customColors: CustomColorGroup[];
+	source: number;
+	schemes: { light: Scheme; dark: Scheme };
+	palettes: {
+		primary: TonalPalette;
+		secondary: TonalPalette;
+		tertiary: TonalPalette;
+		neutral: TonalPalette;
+		neutralVariant: TonalPalette;
+		error: TonalPalette;
+	};
+	customColors: CustomColorGroup[];
 }
 
 /**
@@ -73,25 +75,24 @@ export interface Theme {
  * @param customColors Array of custom colors
  * @return Theme object
  */
-export function themeFromSourceColor(
-    source: number, customColors: CustomColor[] = []): Theme {
-  const palette = CorePalette.of(source);
-  return {
-    source,
-    schemes: {
-      light: Scheme.light(source),
-      dark: Scheme.dark(source),
-    },
-    palettes: {
-      primary: palette.a1,
-      secondary: palette.a2,
-      tertiary: palette.a3,
-      neutral: palette.n1,
-      neutralVariant: palette.n2,
-      error: palette.error,
-    },
-    customColors: customColors.map((c) => customColor(source, c)),
-  };
+export function themeFromSourceColor(source: number, customColors: CustomColor[] = []): Theme {
+	const palette = CorePalette.of(source);
+	return {
+		source,
+		schemes: {
+			light: Scheme.light(source),
+			dark: Scheme.dark(source),
+		},
+		palettes: {
+			primary: palette.a1,
+			secondary: palette.a2,
+			tertiary: palette.a3,
+			neutral: palette.n1,
+			neutralVariant: palette.n2,
+			error: palette.error,
+		},
+		customColors: customColors.map((c) => customColor(source, c)),
+	};
 }
 
 /**
@@ -101,10 +102,9 @@ export function themeFromSourceColor(
  * @param customColors Array of custom colors
  * @return Theme object
  */
-export async function themeFromImage(
-    image: EditableImage, customColors: CustomColor[] = []) {
-  const source = await sourceColorFromImage(image);
-  return themeFromSourceColor(source, customColors);
+export async function themeFromImage(image: EditableImage, customColors: CustomColor[] = []) {
+	const source = await sourceColorFromImage(image);
+	return themeFromSourceColor(source, customColors);
 }
 
 /**
@@ -116,30 +116,29 @@ export async function themeFromImage(
  *
  * @link https://m3.material.io/styles/color/the-color-system/color-roles
  */
-export function customColor(
-    source: number, color: CustomColor): CustomColorGroup {
-  let value = color.value;
-  const from = value;
-  const to = source;
-  if (color.blend) {
-    value = Blend.harmonize(from, to);
-  }
-  const palette = CorePalette.of(value);
-  const tones = palette.a1;
-  return {
-    color,
-    value,
-    light: {
-      color: tones.tone(40),
-      onColor: tones.tone(100),
-      colorContainer: tones.tone(90),
-      onColorContainer: tones.tone(10),
-    },
-    dark: {
-      color: tones.tone(80),
-      onColor: tones.tone(20),
-      colorContainer: tones.tone(30),
-      onColorContainer: tones.tone(90),
-    },
-  };
+export function customColor(source: number, color: CustomColor): CustomColorGroup {
+	let value = color.value;
+	const from = value;
+	const to = source;
+	if (color.blend) {
+		value = Blend.harmonize(from, to);
+	}
+	const palette = CorePalette.of(value);
+	const tones = palette.a1;
+	return {
+		color,
+		value,
+		light: {
+			color: tones.tone(40),
+			onColor: tones.tone(100),
+			colorContainer: tones.tone(90),
+			onColorContainer: tones.tone(10),
+		},
+		dark: {
+			color: tones.tone(80),
+			onColor: tones.tone(20),
+			colorContainer: tones.tone(30),
+			onColorContainer: tones.tone(90),
+		},
+	};
 }

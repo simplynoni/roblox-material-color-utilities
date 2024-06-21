@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-import * as colorUtils from "./color_utils";
+import * as colorUtils from './color_utils';
 
 /**
  * Utility methods for hexadecimal representations of colors.
@@ -29,20 +29,16 @@ export function hexFromArgb(argb: number) {
 	const r = colorUtils.redFromArgb(argb);
 	const g = colorUtils.greenFromArgb(argb);
 	const b = colorUtils.blueFromArgb(argb);
-	const outParts = [
-		tostring(tonumber(r, 16)),
-		tostring(tonumber(g, 16)),
-		tostring(tonumber(b, 16)),
-	];
+	const outParts = [tostring(tonumber(r, 16)), tostring(tonumber(g, 16)), tostring(tonumber(b, 16))];
 
 	// Pad single-digit output values
 	for (const [i, part] of pairs(outParts)) {
 		if (part.size() === 1) {
-			outParts[i] = "0" + part;
+			outParts[i] = '0' + part;
 		}
 	}
 
-	return "#" + outParts.join("");
+	return '#' + outParts.join('');
 }
 
 /**
@@ -52,12 +48,12 @@ export function hexFromArgb(argb: number) {
  * @return ARGB representation of color.
  */
 export function argbFromHex(hex: string) {
-	hex = hex.gsub("#", "")[0];
+	hex = hex.gsub('#', '')[0];
 	const isThree = hex.size() === 3;
 	const isSix = hex.size() === 6;
 	const isEight = hex.size() === 8;
 	if (!isThree && !isSix && !isEight) {
-		throw error("unexpected hex " + hex);
+		throw error('unexpected hex ' + hex);
 	}
 	let r = 0;
 	let g = 0;
@@ -76,9 +72,7 @@ export function argbFromHex(hex: string) {
 		b = parseIntHex(hex.sub(6, 8));
 	}
 
-	return (
-		((255 << 24) | ((r & 0x0ff) << 16) | ((g & 0x0ff) << 8) | (b & 0x0ff)) >>> 0
-	);
+	return ((255 << 24) | ((r & 0x0ff) << 16) | ((g & 0x0ff) << 8) | (b & 0x0ff)) >>> 0;
 }
 
 function parseIntHex(value: string) {
@@ -86,6 +80,6 @@ function parseIntHex(value: string) {
 	if (number) {
 		return number;
 	} else {
-		throw error("unexpected hex" + value);
+		throw error('unexpected hex' + value);
 	}
 }

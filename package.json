@@ -5,14 +5,7 @@
 		"access": "public"
 	},
 	"description": "Algorithms and utilities that power the Material Design 3 (M3) color system, including choosing theme colors from images and creating tones of colors; all in a new color space.",
-	"keywords": [
-		"material",
-		"material design",
-		"material3",
-		"material you",
-		"color extraction",
-		"theming"
-	],
+	"keywords": ["material", "material design", "material3", "material you", "color extraction", "theming"],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/simplynoni/roblox-material-color-utilities.git"
@@ -20,10 +13,7 @@
 	"author": "simpylnoni",
 	"license": "Apache-2.0",
 	"type": "module",
-	"files": [
-		"out",
-		"!**/*.tsbuildinfo"
-	],
+	"files": ["out", "!**/*.tsbuildinfo"],
 	"main": "out/init.lua",
 	"scripts": {
 		"watch": "rbxtsc -w --verbose --rojo test.project.json --type model",

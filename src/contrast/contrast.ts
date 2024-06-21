@@ -21,8 +21,8 @@
 //
 // tslint:disable:class-as-namespace
 
-import * as utils from "../utils/color_utils";
-import * as mathUtils from "../utils/math_utils";
+import * as utils from '../utils/color_utils';
+import * as mathUtils from '../utils/math_utils';
 
 /**
  * Utility methods for calculating contrast given two colors, or calculating a

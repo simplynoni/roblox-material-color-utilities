@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 
-import type { DynamicColor } from "./dynamic_color";
+import type { DynamicColor } from './dynamic_color';
 
 /**
  * Describes the different in tone between colors.
  */
-export type TonePolarity = "darker" | "lighter" | "nearer" | "farther";
+export type TonePolarity = 'darker' | 'lighter' | 'nearer' | 'farther';
 
 /**
  * Documents a constraint between two DynamicColors, in which their tones must
