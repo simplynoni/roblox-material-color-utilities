@@ -1,0 +1,7 @@
+{
+	"name": "material-ui",
+	"globIgnorePaths": ["**/package.json", "**/tsconfig.json"],
+	"tree": {
+		"$path": "./out"
+	}
+}

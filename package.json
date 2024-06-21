@@ -1,0 +1,33 @@
+{
+	"name": "@rbxts/material-color-utilities",
+	"version": "0.2.7",
+	"publishConfig": {
+		"access": "public"
+	},
+	"description": "Algorithms and utilities that power the Material Design 3 (M3) color system, including choosing theme colors from images and creating tones of colors; all in a new color space.",
+	"keywords": ["material", "material design", "material3", "material you", "color extraction", "theming"],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/simplynoni/roblox-material-color-utilities.git"
+	},
+	"author": "simpylnoni",
+	"license": "Apache-2.0",
+	"type": "module",
+	"files": ["out", "!**/*.tsbuildinfo"],
+	"main": "out/init.lua",
+	"scripts": {
+		"compile": "rbxtsc --rojo serve.project.json --type model"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.7.3",
+		"@rbxts/compiler-types": "^2.3.0-types.0",
+		"@rbxts/types": "^1.0.760",
+		"roblox-ts": "^2.3.0",
+		"typescript": "^4.9.4"
+	},
+	"dependencies": {
+		"@rbxts/jest": "^0.1.0",
+		"@rbxts/jest-globals": "^0.1.0",
+		"@rbxts/sift": "^0.0.8"
+	}
+}
