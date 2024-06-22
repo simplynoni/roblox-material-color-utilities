@@ -71,7 +71,7 @@ export class QuantizerWu {
 
 		const countByColor = QuantizerMap.quantize(pixels);
 
-		for (const [pixel, count] of pairs(countByColor)) {
+		for (const [pixel, count] of countByColor) {
 			const red = utils.redFromArgb(pixel);
 			const green = utils.greenFromArgb(pixel);
 			const blue = utils.blueFromArgb(pixel);
@@ -92,11 +92,11 @@ export class QuantizerWu {
 
 	private computeMoments() {
 		for (let r = 1; r < SIDE_LENGTH; r++) {
-			const area = new Array<number>(TOTAL_SIZE, 0);
-			const areaR = new Array<number>(TOTAL_SIZE, 0);
-			const areaG = new Array<number>(TOTAL_SIZE, 0);
-			const areaB = new Array<number>(TOTAL_SIZE, 0);
-			const area2 = new Array<number>(TOTAL_SIZE, 0.0);
+			const area = new Array<number>(SIDE_LENGTH, 0);
+			const areaR = new Array<number>(SIDE_LENGTH, 0);
+			const areaG = new Array<number>(SIDE_LENGTH, 0);
+			const areaB = new Array<number>(SIDE_LENGTH, 0);
+			const area2 = new Array<number>(SIDE_LENGTH, 0.0);
 			for (let g = 1; g < SIDE_LENGTH; g++) {
 				let line = 0;
 				let lineR = 0;
@@ -129,7 +129,7 @@ export class QuantizerWu {
 	}
 
 	private createBoxes(maxColors: number): CreateBoxesResult {
-		this.cubes = new Array<Box>(maxColors, new Box());
+		this.cubes = new Array<number>(maxColors, 0).map(() => new Box());
 		const volumeVariance = new Array<number>(maxColors, 0.0);
 		this.cubes[0].r0 = 0;
 		this.cubes[0].g0 = 0;
