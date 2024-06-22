@@ -132,7 +132,6 @@ export class QuantizerWsmeans {
 					distanceToIndexMatrix[i][j].distance = distance;
 					distanceToIndexMatrix[i][j].index = j;
 				}
-				distanceToIndexMatrix[i].sort((a, b) => a.index < b.index);
 				for (let j = 0; j < clusterCount; j++) {
 					indexMatrix[i][j] = distanceToIndexMatrix[i][j].index;
 				}
