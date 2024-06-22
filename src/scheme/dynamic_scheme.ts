@@ -18,7 +18,7 @@
 
 import { Hct } from '../hct/hct';
 import { TonalPalette } from '../palettes/tonal_palette';
-import * as math_utils from '../utils/math_utils';
+import * as mathUtils from '../utils/math_utils';
 
 import type { Variant } from './variant';
 
@@ -156,14 +156,14 @@ export class DynamicScheme {
 			throw error(`mismatch between hue length ${hues.size()} & rotations ${rotations.size()}`);
 		}
 		if (rotations.size() === 1) {
-			return math_utils.sanitizeDegreesDouble(sourceColor.getHue() + rotations[0]);
+			return mathUtils.sanitizeDegreesDouble(sourceColor.getHue() + rotations[0]);
 		}
 		const size = hues.size();
 		for (let i = 0; i <= size - 2; i++) {
 			const thisHue = hues[i];
 			const nextHue = hues[i + 1];
 			if (thisHue < sourceHue && sourceHue < nextHue) {
-				return math_utils.sanitizeDegreesDouble(sourceHue + rotations[i]);
+				return mathUtils.sanitizeDegreesDouble(sourceHue + rotations[i]);
 			}
 		}
 		// If this statement executes, something is wrong, there should have been a

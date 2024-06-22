@@ -18,7 +18,7 @@
 
 import type { Hct } from '../hct/hct';
 import { TonalPalette } from '../palettes/tonal_palette';
-import * as math_utils from '../utils/math_utils';
+import * as mathUtils from '../utils/math_utils';
 
 import { DynamicScheme } from './dynamic_scheme';
 import { Variant } from './variant';
@@ -34,11 +34,11 @@ export class SchemeFruitSalad extends DynamicScheme {
 			contrastLevel,
 			isDark,
 			primaryPalette: TonalPalette.fromHueAndChroma(
-				math_utils.sanitizeDegreesDouble(sourceColorHct.getHue() - 50.0),
+				mathUtils.sanitizeDegreesDouble(sourceColorHct.getHue() - 50.0),
 				48.0,
 			),
 			secondaryPalette: TonalPalette.fromHueAndChroma(
-				math_utils.sanitizeDegreesDouble(sourceColorHct.getHue() - 50.0),
+				mathUtils.sanitizeDegreesDouble(sourceColorHct.getHue() - 50.0),
 				36.0,
 			),
 			tertiaryPalette: TonalPalette.fromHueAndChroma(sourceColorHct.getHue(), 36.0),

@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-import * as math_utils from '../utils/math_utils';
+import * as mathUtils from '../utils/math_utils';
 
 /**
  * A class containing a value that changes with the contrast level.
@@ -53,13 +53,13 @@ export class ContrastCurve {
 			return this.low;
 		}
 		if (contrastLevel < 0.0) {
-			return math_utils.lerp(this.low, this.normal, (contrastLevel - -1) / 1);
+			return mathUtils.lerp(this.low, this.normal, (contrastLevel - -1) / 1);
 		}
 		if (contrastLevel < 0.5) {
-			return math_utils.lerp(this.normal, this.medium, (contrastLevel - 0) / 0.5);
+			return mathUtils.lerp(this.normal, this.medium, (contrastLevel - 0) / 0.5);
 		}
 		if (contrastLevel < 1.0) {
-			return math_utils.lerp(this.medium, this.high, (contrastLevel - 0.5) / 0.5);
+			return mathUtils.lerp(this.medium, this.high, (contrastLevel - 0.5) / 0.5);
 		}
 		return this.high;
 	}

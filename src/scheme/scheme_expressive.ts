@@ -18,7 +18,7 @@
 
 import type { Hct } from '../hct/hct';
 import { TonalPalette } from '../palettes/tonal_palette';
-import * as math_utils from '../utils/math_utils';
+import * as mathUtils from '../utils/math_utils';
 
 import { DynamicScheme } from './dynamic_scheme';
 import { Variant } from './variant';
@@ -52,7 +52,7 @@ export class SchemeExpressive extends DynamicScheme {
 			contrastLevel,
 			isDark,
 			primaryPalette: TonalPalette.fromHueAndChroma(
-				math_utils.sanitizeDegreesDouble(sourceColorHct.getHue() + 240.0),
+				mathUtils.sanitizeDegreesDouble(sourceColorHct.getHue() + 240.0),
 				40.0,
 			),
 			secondaryPalette: TonalPalette.fromHueAndChroma(

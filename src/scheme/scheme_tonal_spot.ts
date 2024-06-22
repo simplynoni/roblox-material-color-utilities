@@ -18,7 +18,7 @@
 
 import type { Hct } from '../hct/hct';
 import { TonalPalette } from '../palettes/tonal_palette';
-import * as math_utils from '../utils/math_utils';
+import * as mathUtils from '../utils/math_utils';
 
 import { DynamicScheme } from './dynamic_scheme';
 import { Variant } from './variant';
@@ -39,7 +39,7 @@ export class SchemeTonalSpot extends DynamicScheme {
 			primaryPalette: TonalPalette.fromHueAndChroma(sourceColorHct.getHue(), 36.0),
 			secondaryPalette: TonalPalette.fromHueAndChroma(sourceColorHct.getHue(), 16.0),
 			tertiaryPalette: TonalPalette.fromHueAndChroma(
-				math_utils.sanitizeDegreesDouble(sourceColorHct.getHue() + 60.0),
+				mathUtils.sanitizeDegreesDouble(sourceColorHct.getHue() + 60.0),
 				24.0,
 			),
 			neutralPalette: TonalPalette.fromHueAndChroma(sourceColorHct.getHue(), 6.0),
