@@ -1,3 +1,4 @@
+//!native
 /**
  * @license
  * Copyright 2022 Google LLC
