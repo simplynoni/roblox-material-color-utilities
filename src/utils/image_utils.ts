@@ -27,7 +27,7 @@ import { argbFromRgb } from './color_utils';
  * @param image The image element
  * @return Source color - the color most suitable for creating a UI theme
  */
-export async function sourceColorFromImage(image: EditableImage) {
+export function sourceColorFromImage(image: EditableImage) {
 	const imageBytes = image.ReadPixels(Vector2.zero, image.Size);
 	// Convert Image data to Pixel Array
 	const pixels: number[] = [];

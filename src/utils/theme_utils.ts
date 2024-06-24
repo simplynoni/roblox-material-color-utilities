@@ -103,8 +103,8 @@ export function themeFromSourceColor(source: number, customColors: CustomColor[]
  * @param customColors Array of custom colors
  * @return Theme object
  */
-export async function themeFromImage(image: EditableImage, customColors: CustomColor[] = []) {
-	const source = await sourceColorFromImage(image);
+export function themeFromImage(image: EditableImage, customColors: CustomColor[] = []) {
+	const source = sourceColorFromImage(image);
 	return themeFromSourceColor(source, customColors);
 }
 
