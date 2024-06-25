@@ -30,16 +30,8 @@ export function hexFromArgb(argb: number) {
 	const r = colorUtils.redFromArgb(argb);
 	const g = colorUtils.greenFromArgb(argb);
 	const b = colorUtils.blueFromArgb(argb);
-	const outParts = [tostring(tonumber(r, 16)), tostring(tonumber(g, 16)), tostring(tonumber(b, 16))];
 
-	// Pad single-digit output values
-	for (const [i, part] of pairs(outParts)) {
-		if (part.size() === 1) {
-			outParts[i] = '0' + part;
-		}
-	}
-
-	return '#' + outParts.join('');
+	return string.format('#%02X%02X%02X', r, g, b);
 }
 
 /**
@@ -54,7 +46,7 @@ export function argbFromHex(hex: string) {
 	const isSix = hex.size() === 6;
 	const isEight = hex.size() === 8;
 	if (!isThree && !isSix && !isEight) {
-		throw error('unexpected hex ' + hex);
+		throw `unexpected hex ${hex}`;
 	}
 	let r = 0;
 	let g = 0;
@@ -78,9 +70,9 @@ export function argbFromHex(hex: string) {
 
 function parseIntHex(value: string) {
 	const number = tonumber(value, 16);
-	if (number) {
+	if (number !== undefined) {
 		return number;
 	} else {
-		throw error('unexpected hex' + value);
+		throw `unexpected hex ${value}`;
 	}
 }

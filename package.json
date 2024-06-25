@@ -5,7 +5,16 @@
 		"access": "public"
 	},
 	"description": "Algorithms and utilities that power the Material Design 3 (M3) color system, including choosing theme colors from images and creating tones of colors; all in a new color space.",
-	"keywords": ["material", "material design", "material3", "material you", "color extraction", "theming"],
+	"keywords": [
+		"material",
+		"material design",
+		"material3",
+		"material you",
+		"color extraction",
+		"theming",
+		"roblox",
+		"roblox-ts"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/simplynoni/roblox-material-color-utilities.git"
@@ -13,12 +22,13 @@
 	"author": "simpylnoni",
 	"license": "Apache-2.0",
 	"type": "module",
-	"files": ["out", "!**/*.tsbuildinfo"],
+	"files": ["out", "!**/*.tsbuildinfo", "!**/*.spec.lua", "!**/*.spec.d.ts"],
 	"main": "out/init.lua",
+	"types": "out/index.d.ts",
 	"scripts": {
 		"watch": "rbxtsc -w --verbose --rojo test.project.json --type model",
-		"compile-package": "rbxtsc --verbose",
-		"compile-model": "rbxtsc --verbose --rojo test.project.json --type model",
+		"compile-package": "rbxtsc --verbose --optimizedLoops",
+		"compile-model": "rbxtsc --verbose --optimizedLoops --rojo test.project.json --type model",
 		"build-place": "rojo build test.project.json -o test.rbxl",
 		"run-tests": "run-in-roblox --place test.rbxl --script scripts/run_tests.lua",
 		"test": "npm run compile-model & npm run build-place & npm run run-tests"

@@ -153,7 +153,7 @@ export class DynamicScheme {
 	static getRotatedHue(sourceColor: Hct, hues: number[], rotations: number[]): number {
 		const sourceHue = sourceColor.getHue();
 		if (hues.size() !== rotations.size()) {
-			throw error(`mismatch between hue length ${hues.size()} & rotations ${rotations.size()}`);
+			throw `mismatch between hue length ${hues.size()} & rotations ${rotations.size()}`;
 		}
 		if (rotations.size() === 1) {
 			return mathUtils.sanitizeDegreesDouble(sourceColor.getHue() + rotations[0]);

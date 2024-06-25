@@ -252,7 +252,7 @@ export class QuantizerWu {
 				break;
 			}
 			default:
-				throw error(`unexpected direction ${direction}`);
+				throw `unexpected direction ${direction}`;
 		}
 
 		one.vol = (one.r1 - one.r0) * (one.g1 - one.g0) * (one.b1 - one.b0);
@@ -352,7 +352,7 @@ export class QuantizerWu {
 					moment[this.getIndex(cube.r0, cube.g0, cube.b0)]
 				);
 			default:
-				throw error('unexpected direction $direction');
+				throw `unexpected direction ${direction}`;
 		}
 	}
 
@@ -380,7 +380,7 @@ export class QuantizerWu {
 					moment[this.getIndex(cube.r0, cube.g0, position)]
 				);
 			default:
-				throw error('unexpected direction $direction');
+				throw `unexpected direction ${direction}`;
 		}
 	}
 

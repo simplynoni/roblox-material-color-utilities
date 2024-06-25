@@ -32,10 +32,10 @@ export function sourceColorFromImage(image: EditableImage) {
 	// Convert Image data to Pixel Array
 	const pixels: number[] = [];
 	for (let i = 0; i < imageBytes.size(); i += 4) {
-		const r = imageBytes[i];
-		const g = imageBytes[i + 1];
-		const b = imageBytes[i + 2];
-		const a = imageBytes[i + 3];
+		const r = imageBytes[i] * 255;
+		const g = imageBytes[i + 1] * 255;
+		const b = imageBytes[i + 2] * 255;
+		const a = imageBytes[i + 3] * 255;
 		if (a < 255) {
 			continue;
 		}
