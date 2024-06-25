@@ -5,4 +5,5 @@
 [tools]
 rojo = "rojo-rbx/rojo@7.4.1"
 run-in-roblox = "rojo-rbx/run-in-roblox@0.3.0"
+lune = "lune-org/lune@0.8.6"
 # rojo = "rojo-rbx/rojo@6.2.0"

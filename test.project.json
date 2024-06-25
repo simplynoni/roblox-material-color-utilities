@@ -17,6 +17,10 @@
 			"material_color": {
 				"$path": "out"
 			}
+		},
+		"TestService": {
+			"$className": "TestService",
+			"$path": "scripts/"
 		}
 	}
 }

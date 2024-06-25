@@ -1,0 +1,28 @@
+name: Unit Tests
+
+on:
+    pull_request:
+    push:
+        branches:
+            - master
+
+jobs:
+    unit-tests:
+        name: Unit Tests
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+
+            - name: Install Dependencies
+              uses: bahmutov/npm-install@v1
+
+            - name: Setup Aftman
+              uses: ok-nick/setup-aftman@v0.4.2
+              with:
+                token: ${{ secrets.GITHUB_TOKEN }}
+            
+            - name: Run Tests
+              run: |
+                npm run compile-model
+                npm run run-tests-lune

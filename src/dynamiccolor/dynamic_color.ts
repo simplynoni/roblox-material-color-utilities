@@ -132,13 +132,13 @@ export class DynamicColor {
 		readonly toneDeltaPair?: (scheme: DynamicScheme) => ToneDeltaPair,
 	) {
 		if (!background && secondBackground) {
-			throw error(`Color ${name} has secondBackground defined, but background is not defined.`);
+			throw `Color ${name} has secondBackground defined, but background is not defined.`;
 		}
 		if (!background && contrastCurve) {
-			throw error(`Color ${name} has contrastCurve defined, but background is not defined.`);
+			throw `Color ${name} has contrastCurve defined, but background is not defined.`;
 		}
 		if (background && !contrastCurve) {
-			throw error(`Color ${name} has background defined, but contrastCurve is not defined.`);
+			throw `Color ${name} has background defined, but contrastCurve is not defined.`;
 		}
 	}
 
