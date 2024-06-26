@@ -22,7 +22,7 @@ local DateTime = require("context/date_time")
 local Debug = require("context/debug")
 local Runtime = require("utils/runtime")
 
--- DEPENDENTS: [test.lua, Jest]
+-- DEPENDENTS: [test.luau, Jest]
 local ReducedInstance = require("utils/reduced_instance")
 
 type RojoProject = {
@@ -104,7 +104,7 @@ implementRobloxMethods()
 -- Declaring because it's needed by `loadScript`, but `loadScript` is also needed in `requireModule`. Defined later.
 local requireModule
 
--- DEPENDENTS: [run_tests.lua]
+-- DEPENDENTS: [run_tests.luau]
 -- ProcessService isn't implemented in Lune, so this creates a workable implementation of it by mapping it to process.exit
 local gameWithContext = setmetatable({
 	GetService = function(_self, serviceName: string)
@@ -120,7 +120,7 @@ local gameWithContext = setmetatable({
 	end,
 }, { __index = game })
 
--- DEPENDENTS: [test.lua, Jest]
+-- DEPENDENTS: [test.luau, Jest]
 local function loadScript(script: roblox.Instance): (((...any) -> ...any)?, string?)
 	script = ReducedInstance.once(script)
 	if not script:IsA("LuaSourceContainer") then

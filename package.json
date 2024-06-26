@@ -30,8 +30,8 @@
 		"compile-package": "rbxtsc --verbose --optimizedLoops",
 		"compile-model": "rbxtsc --verbose --optimizedLoops --rojo test.project.json --type model",
 		"build-place": "rojo build test.project.json -o test.rbxl",
-		"run-tests-roblox": "run-in-roblox --place test.rbxl --script scripts/run_tests.lua",
-		"run-tests-lune": "lune run scripts/test.lua",
+		"run-tests-roblox": "run-in-roblox --place test.rbxl --script scripts/run_tests.luau",
+		"run-tests-lune": "lune run scripts/test.luau",
 		"test-roblox": "npm run compile-model && npm run build-place && npm run run-tests-roblox",
 		"test": "npm run compile-model && npm run run-tests-lune"
 	},

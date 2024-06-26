@@ -4,7 +4,7 @@
 
 --[[
 	Provides a connection to a loop that runs every frame. This is used
-	in the custom Heartbeat implementation in scripts/run_tests_lune.lua
+	in the custom Heartbeat implementation in scripts/test.luau
 --]]
 
 local task = require("@lune/task")

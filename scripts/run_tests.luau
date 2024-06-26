@@ -25,6 +25,6 @@ else
     if processServiceExists then
 	    ProcessService:ExitAsync(1)
     else 
-        error()
+        error('Tests failed!')
     end
 end

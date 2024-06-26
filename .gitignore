@@ -1,6 +1,7 @@
 /node_modules
 /out
 /include
+sourcemap.json
 *.tsbuildinfo
 *.rbxl
 *.rbxl.lock
